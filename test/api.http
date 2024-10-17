@@ -1,0 +1,8 @@
+
+###
+POST http://localhost:3000/api/trigger-event
+Content-Type: application/json
+
+{
+    "signal": "XYZ"
+}

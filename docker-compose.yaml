@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    networks:
+      - redisnet
+
+  redisinsight:
+    image: "redis/redisinsight:latest"
+    container_name: redisinsight
+    ports:
+      - 5540:5540
+    depends_on:
+      - redis
+    networks:
+      - redisnet
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  redisnet:
+    driver: bridge
