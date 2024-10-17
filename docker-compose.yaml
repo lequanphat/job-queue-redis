@@ -19,6 +19,18 @@ services:
     networks:
       - redisnet
 
+  queue-app:
+    build:
+      context: .
+    container_name: queue-app
+    ports:
+      - "3000:3000"
+    environment:
+      REDIS_PORT: 6379
+      REDIS_HOST: redis  
+    networks:
+      - redisnet
+
 volumes:
   redis_data:
     driver: local

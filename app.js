@@ -13,7 +13,7 @@ app.use("/api", router);
 app.use(
   "/queues",
   (req, res, next) => {
-    req.proxyUrl = "http://localhost:3000/queues";
+    // config proxy
     next();
   },
   queueRouter
